@@ -2,3 +2,67 @@
 #spin {
 		
 }
+#startPage {
+	background-image: url(../images/maxresdefault.jpg);
+	min-height: 720px;
+}
+#radioButtons {
+	font-size: large;
+	width: 425px;
+	margin-left: 181px;
+	color: white;
+}
+#question {
+	color: white;
+	font-size: 2em;
+	margin-top: 59px;
+	margin-left: 185px;
+}
+#submit {
+	font-size: 1.25em;
+	background-color: blue;
+	color: white;
+	margin-left: 186px;
+}
+
+
+h1 {
+	color: white;
+	text-align: center;
+	font-size: 2.5em;
+}
+#start {
+	margin-left: 174px;
+
+}
+#triviaPage {
+	width: 789px;
+	float: left;
+	background-image: url(../images/Scrap-parts.jpg);
+	min-height: 282px;
+	margin-left: 150px;
+	margin-top: 53px;
+
+}
+#display {
+	color: purple;
+	font-size: 1.5em;
+}
+#strike {
+	width: 575px;
+	float: right;
+}
+.wl {
+	color: blue;
+	font-size: 1.5em;
+}
+#results {
+	font-size: 2em;
+	color: blue;
+}
+#scoreBoard {
+	width: 400px;
+	margin-left: 342px;
+	clear: both;
+	padding-top: 25px;
+}

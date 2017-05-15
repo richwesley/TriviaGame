@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test Timer</title>
+</head>
+
+<body>
+
+<div id="display"></div>
+
+<script>
+
+var seconds = 15;
+		
+function startCountdown () {
+	var timer = setInterval(function() { 
+		$('#display').text(seconds--);
+		if (seconds <= 0) {
+			$('#display').fadeOut('fast');
+			clearInterval(timer);
+			wrongAnswer ();
+		} 
+	}, 1000);
+}
+	
+startCountdown();	
+	
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+</body>
+</html>

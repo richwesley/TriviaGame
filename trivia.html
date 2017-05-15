@@ -3,42 +3,85 @@
 <head>
 <meta charset="utf-8">
 <title>Trivia Game</title>
+
+<link href="assets/css/reset.css" rel="stylesheet" type="text/css">
+<link href="assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-<div id="display">00</div>
+<!-- <audio controls id="music"> 
+  	  <source src="assets/images/03 Lost and Gone.m4a">
+</audio> -->
 
-<p id = "question">Question</p>
-<form id ="radioButtons">
-  <label id="choices0">
-    <input type="radio" name="Trivia" value="0" id="choice0">
-    a)</label>
-  <br>
-  <label id="choices1">
-    <input type="radio" name="Trivia" value="1" id="choice1">
-    b)</label>
-  <br>
-  <label id="choices2">
-    <input type="radio" name="Trivia" value="2" id="choice2">
-    c)</label>
-  <br>
-  <label id="choices3">
-    <input type="radio" name="Trivia" value="3" id="choice3">
-    d)</label>
-  <br>
-  <label id="choices4">
-    <input type="radio" name="Trivia" value="4" id="choice4">
-    e)</label>
-  <br>
-  <br>
-</form>
+<div id="startPage">
+  
+  
+  <h1>Metal Trivia</h1>
+  <button id="start">Start Game</button>
+  
+</div>
 
-<input type="submit" id="submit" onClick="getRadioButton()">
- 
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="app.js"></script>
+<div id = "triviaPage">
+	
+  <h2 id = "display"></h2>
 
+	<p id = "question">Question</p>
+	
+	<form id = "radioButtons">
+ 		
+  		
+    		<input type="radio" name="Trivia" value="0" id="choice0">
+    	   <label id="choices0"></label>
+    	
+  		<br>
+  	
+  		
+    		<input type="radio" name="Trivia" value="1" id="choice1">
+		<label id="choices1"></label>
+		
+  		<br>
+  		
+  		
+    		<input type="radio" name="Trivia" value="2" id="choice2">
+		    <label id="choices2"></label>
+  
+  		<br>
+  		
+  		
+    		<input type="radio" name="Trivia" value="3" id="choice3">
+		    <label id="choices3"></label>
+		
+  		<br>
+  		
+  		
+    		<input type="radio" name="Trivia" value="4" id="choice4">
+		    <label id="choices4"></label>
+		
+  		<br>
+  		<br>
+	</form>
+
+	<input type="submit" id="submit">
+
+</div>
+
+
+<aside id="strike">
+	<img src="assets/images/strike.png" width="181" height="178" alt="" id="strike1"/>
+	<img src="assets/images/strike.png" width="181" height="178" alt="" id="strike2"/>
+	<img src="assets/images/strike.png" width="181" height="178" alt="" id="strike3"/>
+</aside>
+
+<section id="scoreBoard">
+<h1 id="gameOver"></h1>
+<h2 id="results"></h2>
+<p id="wins" class="wl"></p>
+<p id="losses" class="wl"></p>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="assets/js/app.js"></script>
 
 </body>
 </html>
