@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <title>Test Timer</title>
+<style type="text/css">
+#display {
+	color: red;
+	font-size: xx-large;
+}
+</style>
 </head>
 
 <body>
@@ -18,8 +24,7 @@ function startCountdown () {
 		$('#display').text(seconds--);
 		if (seconds <= 0) {
 			$('#display').fadeOut('fast');
-			clearInterval(timer);
-			wrongAnswer ();
+			clearInterval(timer);	
 		} 
 	}, 1000);
 }

@@ -50,19 +50,26 @@ h1 {
 }
 #strike {
 	width: 575px;
-	float: right;
+	margin-left: 266px;
 }
 .wl {
 	color: blue;
 	font-size: 1.5em;
+	margin-bottom: 14px;
+	margin-top: 6px;
+	margin-left: 177px;
 }
 #results {
 	font-size: 2em;
 	color: blue;
 }
 #scoreBoard {
-	width: 400px;
+	width: 496px;
 	margin-left: 342px;
 	clear: both;
 	padding-top: 25px;
+	background-color: #CDC4C4;
+	border: thick solid black;
+	height: 175px;
+	padding-left: 40px;
 }

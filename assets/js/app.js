@@ -1,16 +1,16 @@
 
 //                   Global Vars
 
-var seconds = 30;
+var seconds = 15;
 var selectedAnswer;
 var correct = 0; 
-var timer = 0;
 var	wrong = 0;
 var qnumber = 0;
 var radios;
 var j = 0;
 var k;
 $('#triviaPage').hide();
+$('#scoreBoard').hide();
 $('#strike').hide();
 
 
@@ -33,12 +33,12 @@ var questions = [
 	{
 	question	:	"What is Alice Cooper's boa contrictor's name?",
 	choices		:	["Julius Squeezer", "Gigantus Erectis", "Lovie", "Big Ed", "Stephen"],
-	answer		:	1
+	answer		:	0
 	},
 	{
 	question	:	"Which band has only one guitarist?",
 	choices		:	["Styx", "Boston", "Iron Maiden", "Judas Priest", "Deep Purple"],
-	answer		:	5
+	answer		:	4
 	}
 ];
 
@@ -56,23 +56,26 @@ function startGame () {
 function loadQuestion () {
 	$('#triviaPage').show();
 	$("#question").html("  "+ questions[qnumber].question);
-	for(var j = 0; j < questions[qnumber].choices.length; j++) {
-		$("#choices" + j).text("   " + questions[qnumber].choices[j]);
-		seconds = 30;
-		//startCountdown();
+	for(j = 0; j < questions[qnumber].choices.length; j++) {
+		$("#choices" + j).text("   " + questions[qnumber].choices[j]);	
 	}
-	
+	seconds = 15;
+	startCountdown();
 }
 
 function startCountdown () {
-	var timer = setTimeout(function() { 
-		$('#display').text(seconds--);
+	
+	var timer = setInterval(function() {
+		seconds--;
+		$('#display').text(seconds);
+		console.log(seconds);
 		  if (seconds <= 0) {
-			$('#display').fadeOut('fast');
-			clearTimeout(timer);			
+			$('#display').hide();			  
+			clearInterval(timer);
+			radios = document.getElementsByName('Trivia');  
+			wrongAnswer (); 
 		} 
-	}, 1000);
-	wrongAnswer ();
+	}, 1000);	
 }
 
 
@@ -82,7 +85,6 @@ function getSubmit (){
 		for  (k = 0; k < radios.length; k++) {
 			if (radios[k].checked === true) {
 				selectedAnswer = radios[k].value;
-				console.log(selectedAnswer);
 				checkChoice();
 			}
 		}
@@ -118,7 +120,7 @@ function scoreBoard () {
 	
 	var rightAnswer = questions[qnumber].answer;
 	
-	console.log("player Chose " + selectedAnswer + " The correct answer was " + questions[qnumber].choices[rightAnswer]);
+	console.log("player Chose " + questions[qnumber].choices[selectedAnswer] + " The correct answer was " + questions[qnumber].choices[rightAnswer]);
 	
 	if(selectedAnswer == questions[qnumber].answer) {
 		$('#results').html("You are a Rock Star");
@@ -129,24 +131,34 @@ function scoreBoard () {
 	
 	$('#wins').text("Wins:   " + correct);
 	$('#losses').text("Losses: " + wrong);
+	var lastQuestion = qnumber + 1;
+	console.log(lastQuestion);
 	
-	if(questions[qnumber].question == questions.length) {
+	if(lastQuestion == questions.length) {
+		setTimeout(function(){
+			$('#results').hide();
+			$('#gameOver').text("Game Over");    
+	  	}, 2000);
+		
 		$('#gameOver').text("Game Over");
 	}
 	else {
-		//var pauseTime = setInterval(function(){ console.log("pause 5 seconds"); }, 5000);
-			
-		clearBoard();
+		console.log(lastQuestion + "  " + questions.length);
+		setTimeout(function(){
+			 clearBoard();   
+	  	}, 3000);
 	}
+					
 }
+
 
 function clearBoard () {
 	document.getElementsByName('Trivia');
-	for  (k = 0; k < radios.length; k++) {
+	for  (k = 0; k < 5; k++) {
 		radios[k].checked = false;
 	}
 	qnumber++;
-	//$('#scoreBoard').hide();
+	$('#scoreBoard').hide();
 	loadQuestion();
 }
 
